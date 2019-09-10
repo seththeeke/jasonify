@@ -1,0 +1,82 @@
+<!doctype html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style type="text/css">
+
+        .wrapper {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+
+        .inline-block {
+            display: inline-block;
+        }
+
+        div:hover {
+            cursor: pointer
+        }
+
+        image:hover {
+            cursor: pointer
+        }
+
+        button:hover {
+            cursor: pointer
+        }
+
+        textarea {
+            height: 250px;
+            width: 250px;
+        }
+
+        .clickable {
+            text-align: center;
+        }
+
+    </style>
+    <body>
+        <div class="wrapper">
+            <h1>Jasonify!!!</h1>
+            <div class="inline-block">
+                <h4>JSON</h4>
+                <textarea id="json-input"></textarea>
+            </div>
+            <div class="clickable inline-block" onclick="jasonify()">
+                <image src="Jason.PNG" height=150 width="auto"></image>
+                </br>
+                <button label="Jasonify">Jasonify</button>
+            </div>
+            <div class="inline-block">
+                <h4>JASON</h4>
+                <textarea id="json-output"></textarea>
+            </div>
+            </br>
+
+        </div>
+        
+    </body>
+</html>
+
+<script type="text/javascript">
+    
+    function jasonify() {
+        let value = JSON.parse(document.getElementById("json-input").value);
+        let newValue = {};
+        for (var key in value) {
+            newValue[key] = getRandomPhrase();
+        }
+        document.getElementById("json-output").value = JSON.stringify(newValue, null, 2);
+    }
+
+    function getRandomPhrase() {
+        let arr = ["hoopty", "the thing", "whatamacallit", "homeboy", "its a sling", "thingamabob", "hooptymadoo", "bigger boat"];
+        return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+</script>
