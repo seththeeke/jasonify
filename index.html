@@ -45,7 +45,7 @@
             <h1>Jasonify Pretty Printer</h1>
             <div class="inline-block">
                 <h4>JSON</h4>
-                <textarea id="json-input"></textarea>
+                <textarea id="json-input" onkeypress="validateJson()"></textarea>
             </div>
             <div class="clickable inline-block" onclick="jasonify()">
                 <image src="images/Jason.png" height=150 width="auto"></image>
@@ -64,6 +64,10 @@
 </html>
 
 <script type="text/javascript">
+
+    function validateJson() {
+        let value = JSON.parse(document.getElementById("json-input").value);
+    }
     
     function jasonify() {
         let value = JSON.parse(document.getElementById("json-input").value);
@@ -75,7 +79,7 @@
     }
 
     function getRandomPhrase() {
-        let arr = ["hoopty", "the thing", "whatamacallit", "homeboy", "its a sling", "thingamabob", "hooptymadoo", "bigger boat"];
+        let arr = ["hoopty", "the thing", "whatamacallit", "homeboy", "its a thing", "thingamabob", "hooptymadoo", "bigger boat"];
         return arr[Math.floor(Math.random() * arr.length)];
     }
 
